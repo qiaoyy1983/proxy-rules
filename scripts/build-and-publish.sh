@@ -41,9 +41,9 @@ download_sha() {
   # args: url out_path sha_url
   local url="$1" out="$2" sha_url="$3"
   echo "[dl] $url"
-  curl -fL --retry 3 --retry-delay 2 -A "$UA" -o "$out" "$url"
+  curl -fsSL --retry 3 --retry-delay 2 -A "$UA" -o "$out" "$url"
   local expected actual
-  expected=$(curl -fL --retry 3 -A "$UA" "$sha_url" | awk 'NF{print $1; exit}')
+  expected=$(curl -fsSL --retry 3 -A "$UA" "$sha_url" | awk 'NF{print $1; exit}')
   actual=$(sha256sum "$out" | awk '{print $1}')
   if [[ -z "$expected" || "$expected" != "$actual" ]]; then
     echo "[err] sha256 mismatch for $out expected=$expected actual=$actual" >&2
@@ -56,36 +56,37 @@ download_sha() {
 ensure_singbox() {
   local bin="$BASE/.bin/sing-box"
   if [[ -x "$bin" ]]; then
-    "$bin" version 2>/dev/null | head -1 || true
-    echo "$bin"
+    "$bin" version 2>/dev/null | head -1 >&2 || true
+    printf '%s
+' "$bin"
     return 0
   fi
-  echo "[info] fetching sing-box linux-amd64 static binary to .bin/"
+  echo "[info] fetching sing-box linux-amd64 to .bin/" >&2
   local api tag asset url
   api=$(curl -fsSL -A "$UA" https://api.github.com/repos/SagerNet/sing-box/releases/latest)
   tag=$(jq -r '.tag_name' <<<"$api")
-  # prefer plain linux-amd64.tar.gz (static-ish) over glibc/musl variants
   asset=$(jq -r '.assets[].name' <<<"$api" | grep -E '^sing-box-.*-linux-amd64\.tar\.gz$' | grep -vE 'glibc|musl' | head -1 || true)
   if [[ -z "$asset" ]]; then
     asset=$(jq -r '.assets[].name' <<<"$api" | grep -E 'linux-amd64.*\.tar\.gz$' | head -1 || true)
   fi
   if [[ -z "$asset" ]]; then
-    echo "[warn] no sing-box linux-amd64 asset; skip compile"
+    echo "[warn] no sing-box linux-amd64 asset; skip compile" >&2
     return 1
   fi
   url=$(jq -r --arg n "$asset" '.assets[] | select(.name==$n) | .browser_download_url' <<<"$api")
-  curl -fL --retry 3 -A "$UA" -o "$TMP/sing-box.tgz" "$url"
+  curl -fsSL --retry 3 -A "$UA" -o "$TMP/sing-box.tgz" "$url"
   tar -xzf "$TMP/sing-box.tgz" -C "$TMP"
   local found
   found=$(find "$TMP" -type f -name sing-box | head -1)
   if [[ -z "$found" ]]; then
-    echo "[warn] sing-box binary not in archive"
+    echo "[warn] sing-box binary not in archive" >&2
     return 1
   fi
   install -m 0755 "$found" "$bin"
-  echo "[ok] installed sing-box $tag -> $bin"
-  "$bin" version | head -1 || true
-  echo "$bin"
+  echo "[ok] installed sing-box $tag -> $bin" >&2
+  "$bin" version 2>&1 | head -1 >&2 || true
+  printf '%s
+' "$bin"
 }
 
 # --- pull geo packages ---

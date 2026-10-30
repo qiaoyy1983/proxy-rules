@@ -1,5 +1,5 @@
 {
-  "build_time": "20261030-181214",
+  "build_time": "20261030-181419",
   "timezone": "Asia/Shanghai",
   "sources": {
     "sing-geosite": {
@@ -22,9 +22,19 @@
       "sha256": "045aa43c8946e3961dc12ec62e46117f73504755cd0a9dc76b9dada31c21f947"
     },
     {
+      "path": "sing-box/rule-set/direct-personal.srs",
+      "bytes": 94,
+      "sha256": "9543919a75b3824368215874ad9f460512584b05f6559bec483a8a59ecba97ef"
+    },
+    {
       "path": "sing-box/rule-set/proxy-personal.json",
       "bytes": 34,
       "sha256": "2db6ae8eb9d24cb86924a7020c6f3eebfa41b5fc5848a53e239465db622c2312"
+    },
+    {
+      "path": "sing-box/rule-set/proxy-personal.srs",
+      "bytes": 17,
+      "sha256": "7e07ba63e12d8c6877636559e1b5cc810e0d57a83842811b37355b5db7f5985c"
     },
     {
       "path": "geo/geosite.db",
