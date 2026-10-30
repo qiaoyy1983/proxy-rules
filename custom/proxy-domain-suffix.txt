@@ -2,3 +2,17 @@
 # Steam store/community only (download CDN stays in direct-*)
 steampowered.com
 steamcommunity.com
+
+# ProxyForce / GitHub Grok Cursor (suffix)
+github.com
+githubusercontent.com
+githubassets.com
+github.io
+ghcr.io
+githubcopilot.com
+gh.io
+x.ai
+grok.com
+cursor.com
+cursor.sh
+cursorapi.com

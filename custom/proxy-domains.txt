@@ -5,3 +5,18 @@ help.steampowered.com
 login.steampowered.com
 api.steampowered.com
 steamcommunity.com
+
+# ProxyForce / GitHub Grok Cursor (exact)
+api.github.com
+raw.githubusercontent.com
+objects.githubusercontent.com
+codeload.github.com
+copilot.githubusercontent.com
+grok.x.ai
+console.x.ai
+api2.cursor.sh
+api3.cursor.sh
+repo42.cursor.sh
+authenticator.cursor.sh
+downloads.cursor.com
+marketplace.cursorapi.com
