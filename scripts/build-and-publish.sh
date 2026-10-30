@@ -258,7 +258,7 @@ PY
 # --- README ---
 HAS_SRS=0
 [[ -f "$BASE/sing-box/rule-set/direct-personal.srs" ]] && HAS_SRS=1
-cat > "$BASE/README.md" <<README
+cat > "$BASE/README.md" <<'README'
 # proxy-rules
 
 个人路由规则与 Geo 镜像仓库（**不含节点 / 订阅**）。由构建机定时拉取公开源、合并 `custom/` 后推送。
