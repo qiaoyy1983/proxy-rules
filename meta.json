@@ -1,5 +1,5 @@
 {
-  "build_time": "20261030-183353",
+  "build_time": "20261031-051710",
   "timezone": "Asia/Shanghai",
   "sources": {
     "sing-geosite": {
@@ -28,13 +28,13 @@
     },
     {
       "path": "sing-box/rule-set/proxy-personal.json",
-      "bytes": 377,
-      "sha256": "51a02098add28c8de6dd1f8d78286164f933fa202de04fda0b3f8589531d3fec"
+      "bytes": 1055,
+      "sha256": "9112e935563db6635d7fbb9653ca518b884dce7426b317b25843ff4306a80e75"
     },
     {
       "path": "sing-box/rule-set/proxy-personal.srs",
-      "bytes": 127,
-      "sha256": "b6a45cf73c90ca3105ea02e6c1cd61618c527b6dce1d7c904970d31be942ab9a"
+      "bytes": 401,
+      "sha256": "a978bceb6c918511fa9c4e360722c2821ff2bec339932508274ac8e5648bcc41"
     },
     {
       "path": "geo/geosite.db",
@@ -78,8 +78,8 @@
     },
     {
       "path": "custom/proxy-domains.txt",
-      "bytes": 217,
-      "sha256": "263105f3e76e41961e8610a46b9706246e8ea8aebda04613ccf8a2485a078094"
+      "bytes": 522,
+      "sha256": "e49c6927a16f88dbc07092a55a6cb4c4b87979e1b3857f0055af8c8b61b451ac"
     }
   ],
   "notes": "Personal rule-sets are additive extras; clients should also use geosite-cn/geoip-cn for mainland direct."

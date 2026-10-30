@@ -8,3 +8,4 @@
 - jsDelivr：`https://cdn.jsdelivr.net/gh/qiaoyy1983/proxy-rules@main/sing-box/rule-set/<name>.json`
 
 `<name>` 如 `direct-personal`、`proxy-personal`；同路径亦可引用 `.srs` 与 `geo/`、`passwall/`。
+
