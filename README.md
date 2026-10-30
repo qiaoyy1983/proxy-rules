@@ -42,7 +42,7 @@
 
 - systemd user timer：每天 **05:17 Asia/Shanghai**
 - unit：`~/.config/systemd/user/proxy-rules-build.timer` / `.service`
-- 失败：写入 `logs/build.log`，并尝试经中枢已有 `~/.config/alert-bot` 发 Telegram；若告警不可用则**仅记日志**
+- 失败：写入 `logs/build.log`，并经中枢已有 `~/.config/alert-bot`（ALERT_BOT_TOKEN / ALERT_CHAT_ID）发 Telegram；告警不可用时**仅记日志**
 
 ## 目录
 
@@ -67,3 +67,9 @@ backups/bak-*/          # 每次构建前快照（本地，不入库）
 - 主机：Debian 中枢 `/home/peter/proxy-rules`
 - 不碰腾讯订阅机、马来节点、PassWall 节点配置
 - 推送需要 fine-grained PAT（`contents:write`）；无 token 时只本地构建 + commit，不 push
+
+## 本机
+
+- 目录：`/home/peter/proxy-rules`
+- sing-box 二进制：`/home/peter/proxy-rules/.bin/sing-box`（gitignore，不入库）
+- 首次 GitHub 推送：需 fine-grained PAT（`contents: write`），放入 `~/secrets/GITHUB_TOKEN` 或环境变量后重跑构建脚本。
