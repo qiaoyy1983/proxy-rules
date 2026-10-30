@@ -340,21 +340,22 @@ fi
 
 # --- push only with token ---
 TOKEN=""
-if [[ -n "${GITHUB_TOKEN:-}" ]]; then TOKEN="$GITHUB_TOKEN"; fi
+if [[ -n "${GITHUB_PROXY_RULES_PAT:-}" ]]; then TOKEN="$GITHUB_PROXY_RULES_PAT"; fi
+if [[ -z "$TOKEN" && -n "${GITHUB_TOKEN:-}" ]]; then TOKEN="$GITHUB_TOKEN"; fi
 if [[ -z "$TOKEN" && -n "${GH_TOKEN:-}" ]]; then TOKEN="$GH_TOKEN"; fi
-# also check common secret files for KEY NAMES only via env already loaded — never read password file for push
+# secret files (KEY=value env or bare token). Never echo values.
 SECRET_CANDIDATES=(
+  "$HOME/secrets/github-proxy-rules-pat"
   "$HOME/secrets/GITHUB_TOKEN"
   "$HOME/secrets/GH_TOKEN"
   "$HOME/secrets/github-token"
 )
 for f in "${SECRET_CANDIDATES[@]}"; do
   if [[ -f "$f" ]]; then
-    # file content is the token itself or KEY=value — load carefully without echoing
     if grep -q '=' "$f" 2>/dev/null; then
       # shellcheck disable=SC1090
       set -a; source "$f"; set +a
-      TOKEN="${GITHUB_TOKEN:-${GH_TOKEN:-$TOKEN}}"
+      TOKEN="${GITHUB_PROXY_RULES_PAT:-${GITHUB_TOKEN:-${GH_TOKEN:-$TOKEN}}}"
     else
       TOKEN=$(head -1 "$f" | tr -d '\r\n')
     fi
