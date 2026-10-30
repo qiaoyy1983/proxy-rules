@@ -1,0 +1,6 @@
+backups/
+logs/
+.bin/
+*.tmp
+.tmp/
+.DS_Store

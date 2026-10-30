@@ -1,0 +1,4 @@
+# Thin starter proxy list (exact domain). Add as needed.
+# Example placeholders kept commented — leave rules thin/empty-ok.
+# chatgpt.com
+# openai.com

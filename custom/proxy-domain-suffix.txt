@@ -1,0 +1,2 @@
+# Thin starter proxy domain_suffix list
+# openai.com

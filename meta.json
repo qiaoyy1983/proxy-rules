@@ -1,0 +1,76 @@
+{
+  "build_time": "20261030-181214",
+  "timezone": "Asia/Shanghai",
+  "sources": {
+    "sing-geosite": {
+      "repo": "SagerNet/sing-geosite",
+      "tag": "20261028111806"
+    },
+    "sing-geoip": {
+      "repo": "SagerNet/sing-geoip",
+      "tag": "20261012"
+    },
+    "v2ray-rules-dat": {
+      "repo": "Loyalsoldier/v2ray-rules-dat",
+      "tag": "202610292204"
+    }
+  },
+  "files": [
+    {
+      "path": "sing-box/rule-set/direct-personal.json",
+      "bytes": 238,
+      "sha256": "045aa43c8946e3961dc12ec62e46117f73504755cd0a9dc76b9dada31c21f947"
+    },
+    {
+      "path": "sing-box/rule-set/proxy-personal.json",
+      "bytes": 34,
+      "sha256": "2db6ae8eb9d24cb86924a7020c6f3eebfa41b5fc5848a53e239465db622c2312"
+    },
+    {
+      "path": "geo/geosite.db",
+      "bytes": 3969783,
+      "sha256": "0b3b4d4b6b6523178cc119d0e5e2c43a0cae1444e2224b6c080a4acbb0886662"
+    },
+    {
+      "path": "geo/geosite-cn.db",
+      "bytes": 272534,
+      "sha256": "8fc98f1fdcd07b2b5d58133141b7eb658e05cf4db2d1dc400cfbdc6ded7ab9bf"
+    },
+    {
+      "path": "geo/geoip.db",
+      "bytes": 3695733,
+      "sha256": "f24050f4ce11783cd632fe3982f24895d959fa01afc8fab6ca8a6a3615b5de56"
+    },
+    {
+      "path": "geo/geoip-cn.db",
+      "bytes": 215671,
+      "sha256": "b4dd0993520758c2e53d04a86709041a148a04fe5dd99a975e93a53dbcb682c7"
+    },
+    {
+      "path": "passwall/geosite.dat",
+      "bytes": 11309380,
+      "sha256": "5b7f02a431429140545e3b7f5fe542e30e346e98e6802c60c7fdef094412f7a6"
+    },
+    {
+      "path": "passwall/geoip.dat",
+      "bytes": 16549675,
+      "sha256": "fbf747a085be25eb61ecac8c27140b4ab0bf8181af6fdb104caa325bd93cf117"
+    },
+    {
+      "path": "custom/direct-domains.txt",
+      "bytes": 255,
+      "sha256": "a63125a2182460fcd66ad5210a7ddf17cd9828630bd28330d4a1b3e49f35d3e9"
+    },
+    {
+      "path": "custom/direct-ip-cidr.txt",
+      "bytes": 94,
+      "sha256": "79cbc69d2b0d91c5a16af87a4e3a51f728f3f32baa42959bfa7647da2d1c31d0"
+    },
+    {
+      "path": "custom/proxy-domains.txt",
+      "bytes": 153,
+      "sha256": "91c86219b3006604823bf3c4dd8baf6b0bf734f6d23afe4d2c49525e03c1c324"
+    }
+  ],
+  "notes": "Personal rule-sets are additive extras; clients should also use geosite-cn/geoip-cn for mainland direct."
+}

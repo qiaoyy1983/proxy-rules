@@ -1,0 +1,4 @@
+# Personal direct domains (one per line). Comments and blanks ignored.
+# Exact domain match unless marked suffix: or keyword: (builder maps these).
+sub.peterlogs.com
+# Optional family / NAS hostnames if any public DNS names exist — leave blank for now.

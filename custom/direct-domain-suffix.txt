@@ -1,0 +1,2 @@
+# domain_suffix entries (leading dot optional; builder normalizes)
+# lovetianjin.com
