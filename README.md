@@ -1,10 +1,10 @@
 # proxy-rules
 
-Personal routing rule-sets and Geo mirrors for clients (no nodes / no subscription).
+个人路由规则与 Geo 镜像（不含节点 / 订阅）。
 
-## URLs (branch `main`)
+## 引用（分支 `main`）
 
-- Raw: `https://raw.githubusercontent.com/qiaoyy1983/proxy-rules/main/sing-box/rule-set/<name>.json`
-- jsDelivr: `https://cdn.jsdelivr.net/gh/qiaoyy1983/proxy-rules@main/sing-box/rule-set/<name>.json`
+- Raw：`https://raw.githubusercontent.com/qiaoyy1983/proxy-rules/main/sing-box/rule-set/<name>.json`
+- jsDelivr：`https://cdn.jsdelivr.net/gh/qiaoyy1983/proxy-rules@main/sing-box/rule-set/<name>.json`
 
-Replace `<name>` with e.g. `direct-personal` or `proxy-personal` (`.srs` and `geo/` / `passwall/` paths work the same way).
+`<name>` 如 `direct-personal`、`proxy-personal`；同路径亦可引用 `.srs` 与 `geo/`、`passwall/`。
