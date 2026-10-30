@@ -1,4 +1,14 @@
-# Personal direct domains (one per line). Comments and blanks ignored.
-# Exact domain match unless marked suffix: or keyword: (builder maps these).
+# Personal direct — exact domain match
+# Subscription / personal
 sub.peterlogs.com
-# Optional family / NAS hostnames if any public DNS names exist — leave blank for now.
+
+# Steam download CDN (exact hosts; do NOT put store domains here)
+steampipe.akamaized.net
+steampipe-kr.akamaized.net
+steampipe-partner.akamaized.net
+steamcdn-a.akamaihd.net
+steambroadcast.akamaized.net
+steammobile.akamaized.net
+cdn.cloudflare.steamstatic.com
+akamai.cdn.steampipe.steamcontent.com
+alibaba.cdn.steampipe.steamcontent.com

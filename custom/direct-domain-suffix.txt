@@ -1,2 +1,50 @@
-# domain_suffix entries (leading dot optional; builder normalizes)
-# lovetianjin.com
+# Personal direct — domain_suffix (builder strips leading dots)
+# Chinese banks (complement geosite:category-bank-cn)
+icbc.com.cn
+ccb.com
+ccb.com.cn
+abchina.com
+bankcomm.com
+bankcomm.cn
+boc.cn
+psbc.com
+cmbchina.com
+cmbchina.cn
+citicbank.com
+spdb.com.cn
+cmbc.com.cn
+cebbank.com
+bankofbeijing.com.cn
+pingan.com
+cmbimg.com
+
+# Microsoft / Store / Office / Azure (complement geosite:microsoft)
+microsoft.com
+microsoftonline.com
+microsoftstore.com
+live.com
+office.com
+office.net
+msn.com
+azure.com
+windows.net
+xbox.com
+xboxlive.com
+windowsupdate.com
+msftconnecttest.com
+msauth.net
+msftauth.net
+sfx.ms
+aka.ms
+
+# OneDrive / SharePoint (complement geosite:onedrive)
+onedrive.com
+onedrive.live.com
+1drv.com
+1drv.ms
+sharepoint.com
+sharepointonline.com
+
+# Steam download CDN suffixes (NOT store/community)
+steamcontent.com
+steamusercontent.com

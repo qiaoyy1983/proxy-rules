@@ -1,2 +1,4 @@
-# Thin starter proxy domain_suffix list
-# openai.com
+# Personal proxy — domain_suffix
+# Steam store/community only (download CDN stays in direct-*)
+steampowered.com
+steamcommunity.com

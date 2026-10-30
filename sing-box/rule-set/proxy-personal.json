@@ -1,4 +1,21 @@
 {
   "version": 2,
-  "rules": []
+  "rules": [
+    {
+      "domain": [
+        "store.steampowered.com",
+        "checkout.steampowered.com",
+        "help.steampowered.com",
+        "login.steampowered.com",
+        "api.steampowered.com",
+        "steamcommunity.com"
+      ]
+    },
+    {
+      "domain_suffix": [
+        "steampowered.com",
+        "steamcommunity.com"
+      ]
+    }
+  ]
 }

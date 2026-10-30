@@ -1,4 +1,7 @@
-# Thin starter proxy list (exact domain). Add as needed.
-# Example placeholders kept commented — leave rules thin/empty-ok.
-# chatgpt.com
-# openai.com
+# Personal proxy — exact domain (Steam STORE / community only; NOT download CDN)
+store.steampowered.com
+checkout.steampowered.com
+help.steampowered.com
+login.steampowered.com
+api.steampowered.com
+steamcommunity.com

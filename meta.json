@@ -1,5 +1,5 @@
 {
-  "build_time": "20261030-181419",
+  "build_time": "20261030-183353",
   "timezone": "Asia/Shanghai",
   "sources": {
     "sing-geosite": {
@@ -18,23 +18,23 @@
   "files": [
     {
       "path": "sing-box/rule-set/direct-personal.json",
-      "bytes": 238,
-      "sha256": "045aa43c8946e3961dc12ec62e46117f73504755cd0a9dc76b9dada31c21f947"
+      "bytes": 1650,
+      "sha256": "a89f2a94d7c2c48420e1856c36e51294c9de93fa1c15d3b302e2d4671e1cb23b"
     },
     {
       "path": "sing-box/rule-set/direct-personal.srs",
-      "bytes": 94,
-      "sha256": "9543919a75b3824368215874ad9f460512584b05f6559bec483a8a59ecba97ef"
+      "bytes": 583,
+      "sha256": "915176e9b93d1caaf1a7086588b629c40a5cf9950a7c090be4c79082b9efc2dd"
     },
     {
       "path": "sing-box/rule-set/proxy-personal.json",
-      "bytes": 34,
-      "sha256": "2db6ae8eb9d24cb86924a7020c6f3eebfa41b5fc5848a53e239465db622c2312"
+      "bytes": 377,
+      "sha256": "51a02098add28c8de6dd1f8d78286164f933fa202de04fda0b3f8589531d3fec"
     },
     {
       "path": "sing-box/rule-set/proxy-personal.srs",
-      "bytes": 17,
-      "sha256": "7e07ba63e12d8c6877636559e1b5cc810e0d57a83842811b37355b5db7f5985c"
+      "bytes": 127,
+      "sha256": "b6a45cf73c90ca3105ea02e6c1cd61618c527b6dce1d7c904970d31be942ab9a"
     },
     {
       "path": "geo/geosite.db",
@@ -68,8 +68,8 @@
     },
     {
       "path": "custom/direct-domains.txt",
-      "bytes": 255,
-      "sha256": "a63125a2182460fcd66ad5210a7ddf17cd9828630bd28330d4a1b3e49f35d3e9"
+      "bytes": 422,
+      "sha256": "a0722903b9fea179cefcd6ce8d04264787a522c401550b1947c245821ee981c6"
     },
     {
       "path": "custom/direct-ip-cidr.txt",
@@ -78,8 +78,8 @@
     },
     {
       "path": "custom/proxy-domains.txt",
-      "bytes": 153,
-      "sha256": "91c86219b3006604823bf3c4dd8baf6b0bf734f6d23afe4d2c49525e03c1c324"
+      "bytes": 217,
+      "sha256": "263105f3e76e41961e8610a46b9706246e8ea8aebda04613ccf8a2485a078094"
     }
   ],
   "notes": "Personal rule-sets are additive extras; clients should also use geosite-cn/geoip-cn for mainland direct."
