@@ -1,10 +1,10 @@
 {
-  "build_time": "20261031-051710",
+  "build_time": "20261102-051815",
   "timezone": "Asia/Shanghai",
   "sources": {
     "sing-geosite": {
       "repo": "SagerNet/sing-geosite",
-      "tag": "20261028111806"
+      "tag": "20261030132534"
     },
     "sing-geoip": {
       "repo": "SagerNet/sing-geoip",
@@ -12,19 +12,19 @@
     },
     "v2ray-rules-dat": {
       "repo": "Loyalsoldier/v2ray-rules-dat",
-      "tag": "202610292204"
+      "tag": "202610312203"
     }
   },
   "files": [
     {
       "path": "sing-box/rule-set/direct-personal.json",
-      "bytes": 1650,
-      "sha256": "a89f2a94d7c2c48420e1856c36e51294c9de93fa1c15d3b302e2d4671e1cb23b"
+      "bytes": 1652,
+      "sha256": "ea6ff7df2e08af6f6f95d62e26002d940e6f7f1feca1d232e72b8486fdcd6832"
     },
     {
       "path": "sing-box/rule-set/direct-personal.srs",
-      "bytes": 583,
-      "sha256": "915176e9b93d1caaf1a7086588b629c40a5cf9950a7c090be4c79082b9efc2dd"
+      "bytes": 581,
+      "sha256": "6092572ced4a32a28820120024ff0e2d83a277f6fe12a930b1118f6c1b170e80"
     },
     {
       "path": "sing-box/rule-set/proxy-personal.json",
@@ -38,13 +38,13 @@
     },
     {
       "path": "geo/geosite.db",
-      "bytes": 3969783,
-      "sha256": "0b3b4d4b6b6523178cc119d0e5e2c43a0cae1444e2224b6c080a4acbb0886662"
+      "bytes": 3971225,
+      "sha256": "25ad53c7031b7210379d5c7f327b0a3bd17f74b270ea136c20dfd5ca0f21d226"
     },
     {
       "path": "geo/geosite-cn.db",
-      "bytes": 272534,
-      "sha256": "8fc98f1fdcd07b2b5d58133141b7eb658e05cf4db2d1dc400cfbdc6ded7ab9bf"
+      "bytes": 272623,
+      "sha256": "8f8d5f1f5decc4e019f428feaf17e13212c6c56a6c8c440e98dd80e13452600d"
     },
     {
       "path": "geo/geoip.db",
@@ -58,8 +58,8 @@
     },
     {
       "path": "passwall/geosite.dat",
-      "bytes": 11309380,
-      "sha256": "5b7f02a431429140545e3b7f5fe542e30e346e98e6802c60c7fdef094412f7a6"
+      "bytes": 11313407,
+      "sha256": "de0ed52484ee4e793b63e3f9d9de9677e90b289483d96d94fa7f2d7503bdced0"
     },
     {
       "path": "passwall/geoip.dat",
@@ -68,8 +68,8 @@
     },
     {
       "path": "custom/direct-domains.txt",
-      "bytes": 422,
-      "sha256": "a0722903b9fea179cefcd6ce8d04264787a522c401550b1947c245821ee981c6"
+      "bytes": 424,
+      "sha256": "d557f85e32204536e2ec4e24cb18e80044a7f939033c5949d22c49f913bf153f"
     },
     {
       "path": "custom/direct-ip-cidr.txt",

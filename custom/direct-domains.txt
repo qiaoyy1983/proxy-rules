@@ -1,6 +1,6 @@
 # Personal direct — exact domain match
 # Subscription / personal
-sub.peterlogs.com
+sub.lovetianjin.com
 
 # Steam download CDN (exact hosts; do NOT put store domains here)
 steampipe.akamaized.net
