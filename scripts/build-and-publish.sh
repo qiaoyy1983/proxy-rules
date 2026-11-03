@@ -8,7 +8,7 @@ cd "$BASE"
 export TZ=Asia/Shanghai
 STAMP=$(date +%Y%m%d-%H%M%S)
 LOG="$BASE/logs/build.log"
-mkdir -p "$BASE"/{logs,backups,geo,passwall,sing-box/rule-set,custom,.bin,scripts}
+mkdir -p "$BASE"/{logs,backups,geo,passwall,sing-box/rule-set,clash/rule-set,custom,.bin,scripts}
 
 exec > >(tee -a "$LOG") 2>&1
 echo "===== build start $STAMP ====="
@@ -24,7 +24,7 @@ trap on_fail ERR
 # --- backup previous published artifacts ---
 BAK="$BASE/backups/bak-$STAMP"
 mkdir -p "$BAK"
-for d in geo passwall sing-box meta.json README.md; do
+for d in geo passwall sing-box clash meta.json README.md; do
   if [[ -e "$BASE/$d" ]]; then
     cp -a "$BASE/$d" "$BAK/" 2>/dev/null || true
   fi
@@ -124,7 +124,7 @@ for name in geosite.dat geoip.dat; do
   download_sha "$url" "$BASE/passwall/$name" "$sha"
 done
 
-# --- build personal rule-set JSON ---
+# --- build personal rule-set JSON (sing-box) + Clash Meta rule-provider YAML ---
 read_lines() {
   local f="$1"
   [[ -f "$f" ]] || return 0
@@ -160,6 +160,22 @@ def load(name):
 def norm_suffix(items):
     # sing-box domain_suffix is without leading dot typically; accept either
     return [s.lstrip(".") for s in items]
+
+def write_clash(path, domains, suffixes, cidrs=None, header_lines=None):
+    lines = []
+    for h in (header_lines or []):
+        lines.append(h if h.startswith("#") else f"# {h}")
+    if header_lines:
+        lines.append("")
+    lines.append("payload:")
+    for d in domains:
+        lines.append(f"  - DOMAIN,{d}")
+    for s in suffixes:
+        lines.append(f"  - DOMAIN-SUFFIX,{s}")
+    for c in (cidrs or []):
+        lines.append(f"  - IP-CIDR,{c},no-resolve")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 direct_domains = load("direct-domains.txt")
 direct_suffix = norm_suffix(load("direct-domain-suffix.txt"))
@@ -197,6 +213,30 @@ out_dir.mkdir(parents=True, exist_ok=True)
 (out_dir / "proxy-personal.json").write_text(json.dumps(proxy, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print("[ok] wrote direct-personal.json rules=%d" % len(direct["rules"]))
 print("[ok] wrote proxy-personal.json rules=%d" % len(proxy["rules"]))
+
+clash_dir = base / "clash" / "rule-set"
+write_clash(
+    clash_dir / "direct-personal.yaml",
+    direct_domains,
+    direct_suffix,
+    direct_cidr,
+    header_lines=[
+        "# Clash Meta / FLClash rule-provider (behavior: classical)",
+        "# Source: custom/direct-*; parity with sing-box/rule-set/direct-personal",
+    ],
+)
+write_clash(
+    clash_dir / "proxy-personal.yaml",
+    proxy_domains,
+    proxy_suffix,
+    None,
+    header_lines=[
+        "# Clash Meta / FLClash rule-provider (behavior: classical)",
+        "# Source: custom/proxy-*; parity with sing-box/rule-set/proxy-personal",
+    ],
+)
+print("[ok] wrote clash/rule-set/direct-personal.yaml")
+print("[ok] wrote clash/rule-set/proxy-personal.yaml")
 PY
 
 # --- compile .srs if sing-box available ---
@@ -232,9 +272,12 @@ for rel in [
     "sing-box/rule-set/direct-personal.srs",
     "sing-box/rule-set/proxy-personal.json",
     "sing-box/rule-set/proxy-personal.srs",
+    "clash/rule-set/direct-personal.yaml",
+    "clash/rule-set/proxy-personal.yaml",
     "geo/geosite.db", "geo/geosite-cn.db", "geo/geoip.db", "geo/geoip-cn.db",
     "passwall/geosite.dat", "passwall/geoip.dat",
-    "custom/direct-domains.txt", "custom/direct-ip-cidr.txt", "custom/proxy-domains.txt",
+    "custom/direct-domains.txt", "custom/direct-domain-suffix.txt", "custom/direct-ip-cidr.txt",
+    "custom/proxy-domains.txt", "custom/proxy-domain-suffix.txt",
 ]:
     p = base / rel
     if p.exists():
@@ -261,15 +304,45 @@ HAS_SRS=0
 cat > "$BASE/README.md" <<'README'
 # proxy-rules
 
-个人路由规则与 Geo 镜像（不含节点 / 订阅）。
+个人路由规则集与 Geo 镜像，供 Sing-Box / PassWall / Clash Meta（FLClash）一类客户端使用。不含代理节点，也不含订阅源。
 
-## 引用（分支 `main`）
+## direct-personal（直连）
+
+- 国内银行及相关域名
+- Microsoft / Microsoft Store / Live / Office / Azure / Xbox / Windows Update 家族
+- OneDrive / SharePoint 家族
+- Steam 下载与内容 CDN（游戏下载走直连）
+- 家庭用私有局域网网段
+
+## proxy-personal（强制代理）
+
+- Steam 商店、社区、结账与登录（与下载 CDN 直连分开）
+- GitHub 及相关（github.com、githubusercontent、githubassets、github.io、ghcr 等）
+- Grok / xAI
+- Cursor / cursor.sh 相关
+
+## Sing-Box 引用（分支 `main`）
 
 - Raw：`https://raw.githubusercontent.com/qiaoyy1983/proxy-rules/main/sing-box/rule-set/<name>.json`
 - jsDelivr：`https://cdn.jsdelivr.net/gh/qiaoyy1983/proxy-rules@main/sing-box/rule-set/<name>.json`
 
-`<name>` 如 `direct-personal`、`proxy-personal`；同路径亦可引用 `.srs` 与 `geo/`、`passwall/`。
+`<name>` 如 `direct-personal`、`proxy-personal`；同路径亦可引用 `.srs`。PassWall 用 `passwall/geosite.dat`、`passwall/geoip.dat`。
 
+## Clash Meta / FLClash 规则集（rule-provider，classical）
+
+FLClash「通过URL导入」用下面地址（jsDelivr 优先；CDN 偶发滞后可用 Raw）：
+
+**direct-personal（直连）**
+
+- jsDelivr：`https://cdn.jsdelivr.net/gh/qiaoyy1983/proxy-rules@main/clash/rule-set/direct-personal.yaml`
+- Raw：`https://raw.githubusercontent.com/qiaoyy1983/proxy-rules/main/clash/rule-set/direct-personal.yaml`
+
+**proxy-personal（强制代理）**
+
+- jsDelivr：`https://cdn.jsdelivr.net/gh/qiaoyy1983/proxy-rules@main/clash/rule-set/proxy-personal.yaml`
+- Raw：`https://raw.githubusercontent.com/qiaoyy1983/proxy-rules/main/clash/rule-set/proxy-personal.yaml`
+
+导入后仍需在配置里把 rule-provider 挂到规则（例如 `RULE-SET,proxy-personal,PROXY` 先于 `RULE-SET,direct-personal,DIRECT`）。本仓只提供规则列表，不含节点订阅。
 README
 
 # --- git commit ---

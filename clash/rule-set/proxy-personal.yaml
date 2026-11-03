@@ -1,0 +1,37 @@
+# Clash Meta / FLClash rule-provider (behavior: classical)
+# Source: custom/proxy-*; parity with sing-box/rule-set/proxy-personal
+
+payload:
+  - DOMAIN,store.steampowered.com
+  - DOMAIN,checkout.steampowered.com
+  - DOMAIN,help.steampowered.com
+  - DOMAIN,login.steampowered.com
+  - DOMAIN,api.steampowered.com
+  - DOMAIN,steamcommunity.com
+  - DOMAIN,api.github.com
+  - DOMAIN,raw.githubusercontent.com
+  - DOMAIN,objects.githubusercontent.com
+  - DOMAIN,codeload.github.com
+  - DOMAIN,copilot.githubusercontent.com
+  - DOMAIN,grok.x.ai
+  - DOMAIN,console.x.ai
+  - DOMAIN,api2.cursor.sh
+  - DOMAIN,api3.cursor.sh
+  - DOMAIN,repo42.cursor.sh
+  - DOMAIN,authenticator.cursor.sh
+  - DOMAIN,downloads.cursor.com
+  - DOMAIN,marketplace.cursorapi.com
+  - DOMAIN-SUFFIX,steampowered.com
+  - DOMAIN-SUFFIX,steamcommunity.com
+  - DOMAIN-SUFFIX,github.com
+  - DOMAIN-SUFFIX,githubusercontent.com
+  - DOMAIN-SUFFIX,githubassets.com
+  - DOMAIN-SUFFIX,github.io
+  - DOMAIN-SUFFIX,ghcr.io
+  - DOMAIN-SUFFIX,githubcopilot.com
+  - DOMAIN-SUFFIX,gh.io
+  - DOMAIN-SUFFIX,x.ai
+  - DOMAIN-SUFFIX,grok.com
+  - DOMAIN-SUFFIX,cursor.com
+  - DOMAIN-SUFFIX,cursor.sh
+  - DOMAIN-SUFFIX,cursorapi.com
