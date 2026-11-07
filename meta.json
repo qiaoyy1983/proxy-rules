@@ -1,10 +1,10 @@
 {
-  "build_time": "20261107-051825",
+  "build_time": "20261108-051928",
   "timezone": "Asia/Shanghai",
   "sources": {
     "sing-geosite": {
       "repo": "SagerNet/sing-geosite",
-      "tag": "20261106004946"
+      "tag": "20261106131544"
     },
     "sing-geoip": {
       "repo": "SagerNet/sing-geoip",
@@ -12,7 +12,7 @@
     },
     "v2ray-rules-dat": {
       "repo": "Loyalsoldier/v2ray-rules-dat",
-      "tag": "202611052203"
+      "tag": "202611062204"
     }
   },
   "files": [
@@ -37,14 +37,24 @@
       "sha256": "a978bceb6c918511fa9c4e360722c2821ff2bec339932508274ac8e5648bcc41"
     },
     {
+      "path": "clash/rule-set/direct-personal.yaml",
+      "bytes": 1978,
+      "sha256": "5278a0f229f4c3b89dd4ba98f18261429237f977cb7dbefba11b8c267b57f37a"
+    },
+    {
+      "path": "clash/rule-set/proxy-personal.yaml",
+      "bytes": 1174,
+      "sha256": "604b1cf1493a7c7487e3c28b11d0e934785cdd8b8d7130f1cd131164e89cddc9"
+    },
+    {
       "path": "geo/geosite.db",
-      "bytes": 3976455,
-      "sha256": "31e1a3255d52717ac8802e664786235aba69c4118692a3bf4d24cf7da4ef0caf"
+      "bytes": 3989536,
+      "sha256": "fb29ff31db38e79d70540d10b1c68fae8b736f6ce5ed69a19d661af4f6ead873"
     },
     {
       "path": "geo/geosite-cn.db",
-      "bytes": 273600,
-      "sha256": "fe852d955bc74a0d08aa135cb9ab65470232276e19b2ac3c424732afc24f7c2e"
+      "bytes": 276834,
+      "sha256": "63b8daf65b97abe8ee129072c43ced39a9a3cf82bc20b22baee7088bf9cf98cb"
     },
     {
       "path": "geo/geoip.db",
@@ -58,8 +68,8 @@
     },
     {
       "path": "passwall/geosite.dat",
-      "bytes": 11417428,
-      "sha256": "eb694a0dd2afdc7b2a4467402d11cf2e95bc284c7eb8f20d18b25b8068a4c1c0"
+      "bytes": 11423362,
+      "sha256": "054409f16eeafc0ad558fea815ab812a0ed8c2d80d92a2043c8366ebb116d1b5"
     },
     {
       "path": "passwall/geoip.dat",
@@ -72,6 +82,11 @@
       "sha256": "d557f85e32204536e2ec4e24cb18e80044a7f939033c5949d22c49f913bf153f"
     },
     {
+      "path": "custom/direct-domain-suffix.txt",
+      "bytes": 833,
+      "sha256": "5eb893fbe199200620e2b8f19b19d1cf6fc5625a456e542a53e72661c4bb7e64"
+    },
+    {
       "path": "custom/direct-ip-cidr.txt",
       "bytes": 94,
       "sha256": "79cbc69d2b0d91c5a16af87a4e3a51f728f3f32baa42959bfa7647da2d1c31d0"
@@ -80,6 +95,11 @@
       "path": "custom/proxy-domains.txt",
       "bytes": 522,
       "sha256": "e49c6927a16f88dbc07092a55a6cb4c4b87979e1b3857f0055af8c8b61b451ac"
+    },
+    {
+      "path": "custom/proxy-domain-suffix.txt",
+      "bytes": 318,
+      "sha256": "753637c84fd347327c0cf774dbaa0de2107c49a8e1b313ec78f95547f917628c"
     }
   ],
   "notes": "Personal rule-sets are additive extras; clients should also use geosite-cn/geoip-cn for mainland direct."

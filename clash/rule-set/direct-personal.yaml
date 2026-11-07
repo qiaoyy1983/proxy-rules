@@ -2,7 +2,7 @@
 # Source: custom/direct-*; parity with sing-box/rule-set/direct-personal
 
 payload:
-  - DOMAIN,sub.peterlogs.com
+  - DOMAIN,sub.lovetianjin.com
   - DOMAIN,steampipe.akamaized.net
   - DOMAIN,steampipe-kr.akamaized.net
   - DOMAIN,steampipe-partner.akamaized.net
