@@ -1,10 +1,10 @@
 {
-  "build_time": "20261108-051928",
+  "build_time": "20261109-051928",
   "timezone": "Asia/Shanghai",
   "sources": {
     "sing-geosite": {
       "repo": "SagerNet/sing-geosite",
-      "tag": "20261106131544"
+      "tag": "20261108011013"
     },
     "sing-geoip": {
       "repo": "SagerNet/sing-geoip",
@@ -12,7 +12,7 @@
     },
     "v2ray-rules-dat": {
       "repo": "Loyalsoldier/v2ray-rules-dat",
-      "tag": "202611062204"
+      "tag": "202611072203"
     }
   },
   "files": [
@@ -48,13 +48,13 @@
     },
     {
       "path": "geo/geosite.db",
-      "bytes": 3989536,
-      "sha256": "fb29ff31db38e79d70540d10b1c68fae8b736f6ce5ed69a19d661af4f6ead873"
+      "bytes": 3990541,
+      "sha256": "2b763c631fe974e296b2420d30a185a98152de662f6280997fa856dd95bd7280"
     },
     {
       "path": "geo/geosite-cn.db",
       "bytes": 276834,
-      "sha256": "63b8daf65b97abe8ee129072c43ced39a9a3cf82bc20b22baee7088bf9cf98cb"
+      "sha256": "4611a028dccc4399e4c1805ab445f3087a7ef2b1915bc1cbbc7fa18574e92f93"
     },
     {
       "path": "geo/geoip.db",
@@ -68,8 +68,8 @@
     },
     {
       "path": "passwall/geosite.dat",
-      "bytes": 11423362,
-      "sha256": "054409f16eeafc0ad558fea815ab812a0ed8c2d80d92a2043c8366ebb116d1b5"
+      "bytes": 11432220,
+      "sha256": "975ed7bfec972ed42cc9aaf36edbd25e247cfc0d75e05663162d03e613bd8095"
     },
     {
       "path": "passwall/geoip.dat",
