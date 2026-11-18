@@ -1,5 +1,5 @@
 {
-  "build_time": "20261118-052028",
+  "build_time": "20261119-051942",
   "timezone": "Asia/Shanghai",
   "sources": {
     "sing-geosite": {
@@ -12,7 +12,7 @@
     },
     "v2ray-rules-dat": {
       "repo": "Loyalsoldier/v2ray-rules-dat",
-      "tag": "202611162204"
+      "tag": "202611172204"
     }
   },
   "files": [
@@ -68,8 +68,8 @@
     },
     {
       "path": "passwall/geosite.dat",
-      "bytes": 11440219,
-      "sha256": "0a254319dfa52f8ac7ec4475a310657b06fd6e2d7dca69d47a1c443664f6e04f"
+      "bytes": 11450046,
+      "sha256": "118d2e1358b892129be6aaf47e1f0c19d48944cf8f979980c65c7de423947883"
     },
     {
       "path": "passwall/geoip.dat",
